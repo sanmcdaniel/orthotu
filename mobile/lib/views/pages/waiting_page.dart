@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/views/layouts/scaffold_layout.dart';
+import 'package:mobile/views/pages/empty_page.dart';
 
 class WaitingPage extends StatelessWidget {
   @override
@@ -14,7 +15,19 @@ class WaitingPage extends StatelessWidget {
         toolbarHeight: 50,
       ),
       body: Container(
-        child: Container(),
+        child: RaisedButton(
+          onPressed: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => EmptyPage()),
+            ),
+          },
+          color: Colors.blue,
+          child: Text(
+            'Raised Button',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
       ),
       bottom: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

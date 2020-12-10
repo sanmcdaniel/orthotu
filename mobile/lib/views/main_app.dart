@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/main.dart';
 import 'package:mobile/views/main_routes.dart';
 import 'package:mobile/views/pages/waiting_page.dart';
 
@@ -15,10 +14,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WaitingPage(),
+      home: SplashScreen(),
     );
   }
 }

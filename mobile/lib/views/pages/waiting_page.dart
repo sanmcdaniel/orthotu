@@ -1,50 +1,64 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobile/views/layouts/scaffold_layout.dart';
-import 'package:mobile/views/pages/empty_page.dart';
+import 'package:mobile/views/pages/home_page.dart';
 
-class WaitingPage extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  final Color backgroundColor = Colors.white;
+  final TextStyle styleTextUnderTheLoader = TextStyle(
+      fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black);
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  final splashDelay = 5;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _loadWidget();
+  }
+
+  _loadWidget() async {
+    var _duration = Duration(seconds: splashDelay);
+    return Timer(_duration, navigationPage);
+  }
+
+  void navigationPage() {
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldLayout(
-      appBar: AppBar(
-        title: Container(
-          child: Text(
-            'HelloApp',
+      body: DecoratedBox(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/back_ground.png"),
+              fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "ＯＲＴＨＯ ＴＵ",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36.0,
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(10)),
+              Image.asset("assets/images/icon_splash.png"),
+              CircularProgressIndicator(),
+            ],
           ),
         ),
-        toolbarHeight: 50,
-      ),
-      body: Container(
-        child: RaisedButton(
-          onPressed: () => {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => EmptyPage()),
-            ),
-          },
-          color: Colors.blue,
-          child: Text(
-            'Raised Button',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-      bottom: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-        ],
-        selectedItemColor: Colors.amber[800],
       ),
     );
   }

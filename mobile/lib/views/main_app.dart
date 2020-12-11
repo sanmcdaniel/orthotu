@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/views/main_routes.dart';
-import 'package:mobile/views/pages/waiting_page.dart';
 
 class MainApp extends StatelessWidget {
   final RouteName initialRoute;
@@ -13,11 +12,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateRoute: generateRouteDelegate(),
+      initialRoute: initialRoute?.name ?? mainInitialRoute.name,
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
     );
   }
 }

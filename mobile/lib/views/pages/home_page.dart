@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/views/layouts/scaffold_layout.dart';
+import 'package:mobile/views/main_routes.dart';
+import 'package:mobile/views/molecules/common_logo.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -63,21 +65,29 @@ class HomePage extends StatelessWidget {
                   "- เคยมีการอักเสบติดเชื้อ หรือเป็นโรคไขข้อบางชนิด",
                 ),
                 Container(
-                  width: 100,
-                  height: 100,
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  decoration: BoxDecoration(
-                    color: Color(0xffffff),
-                    borderRadius: BorderRadius.circular(35),
-                    boxShadow: [
-                      BoxShadow(
-                          //offset: Offset(0, 4),
-                          color: Color(0xffffff), //edited
-                          spreadRadius: 4,
-                          blurRadius: 10 //edited
-                          )
-                    ],
-                  ),
+                  height: 20,
+                ),
+                GridView.count(
+                  crossAxisSpacing: 29,
+                  shrinkWrap: true,
+                  primary: false,
+                  crossAxisCount: 3,
+                  children: [
+                    CommonLogo(
+                      onTap: () =>
+                          Navigator.pushNamed(context, RouteName.causePage.name),
+                      text: "สาเหตุ",
+                      imageName: "logo_jingle",
+                    ),
+                    CommonLogo(
+                      text: "การรักษา",
+                      imageName: "logo_syringe",
+                    ),
+                    CommonLogo(
+                      text: "การดูแล",
+                      imageName: "logo_heart",
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:mobile/constants/styles/theme_data.dart';
 import 'package:mobile/views/layouts/scaffold_layout.dart';
 import 'package:mobile/views/pages/home_page.dart';
 
@@ -50,11 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Text(
                 "ＯＲＴＨＯ ＴＵ",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36.0,
-                ),
+                style: defaultTextThemeData.headline1,
               ),
               Padding(padding: EdgeInsets.all(10)),
               Image.asset("assets/images/icon_splash.png"),

@@ -3,6 +3,7 @@ import 'package:mobile/views/enhances/base_route_builder.dart';
 import 'package:mobile/views/enhances/standart_route.dart';
 import 'package:mobile/views/pages/cause_page.dart';
 import 'package:mobile/views/pages/home_page.dart';
+import 'package:mobile/views/pages/treatment_page.dart';
 import 'package:mobile/views/pages/waiting_page.dart';
 
 final RouteName mainInitialRoute = RouteName.waiting;
@@ -18,14 +19,11 @@ RouteFactory generateRouteDelegate() {
 Map<String, BaseRouteBuilder> routeBuilders = {
   RouteName.waiting.name: StandardRouteBuilder(page: SplashScreen()),
   RouteName.emptyPage.name: StandardRouteBuilder(page: HomePage()),
-    RouteName.causePage.name: StandardRouteBuilder(page: CausePage()),
+  RouteName.causePage.name: StandardRouteBuilder(page: CausePage()),
+  RouteName.treatmentPage.name: StandardRouteBuilder(page: TreatmentPage()),
 };
 
-enum RouteName {
-  waiting,
-  emptyPage,
-  causePage
-}
+enum RouteName { waiting, emptyPage, causePage, treatmentPage }
 
 extension RouteNameExtensions on RouteName {
   String get name {
@@ -36,6 +34,8 @@ extension RouteNameExtensions on RouteName {
         return "empty type";
       case RouteName.causePage:
         return "cause type";
+      case RouteName.treatmentPage:
+        return "treatMent type";
     }
     return null;
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/constants/styles/styles.dart';
+import 'package:mobile/constants/styles/theme_data.dart';
 
 class CommonLogo extends StatelessWidget {
   final String text;
@@ -17,7 +19,7 @@ class CommonLogo extends StatelessWidget {
             height: 100,
             width: 100,
             decoration: BoxDecoration(
-              color: Colors.grey[200],
+              color: THOR_COLOR_GREY,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
@@ -25,7 +27,7 @@ class CommonLogo extends StatelessWidget {
                   bottomRight: Radius.circular(20)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withOpacity(0.8),
                   blurRadius: 4,
                   offset: Offset(0, 3), // changes position of shadow
                 ),
@@ -42,9 +44,7 @@ class CommonLogo extends StatelessWidget {
                 ),
                 Text(
                   "$text",
-                  style: TextStyle(
-                    fontSize: 12.0,
-                  ),
+                  style: defaultTextThemeData.bodyText2,
                 ),
               ],
             ),

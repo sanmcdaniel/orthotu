@@ -3,6 +3,7 @@ import 'package:mobile/views/enhances/base_route_builder.dart';
 import 'package:mobile/views/enhances/standart_route.dart';
 import 'package:mobile/views/pages/cause_page.dart';
 import 'package:mobile/views/pages/home_page.dart';
+import 'package:mobile/views/pages/surgery_page.dart';
 import 'package:mobile/views/pages/treatment_content_page.dart';
 import 'package:mobile/views/pages/treatment_main_page.dart';
 import 'package:mobile/views/pages/waiting_page.dart';
@@ -24,6 +25,7 @@ Map<String, BaseRouteBuilder> routeBuilders = {
   RouteName.treatmentPage.name: StandardRouteBuilder(page: TreatmentPage()),
   RouteName.treatmentContentPage.name:
       StandardRouteBuilder(page: TreatmentContentPage()),
+  RouteName.surgeryPage.name: StandardRouteBuilder(page: SurgeryPage()),
 };
 
 enum RouteName {
@@ -32,6 +34,7 @@ enum RouteName {
   causePage,
   treatmentPage,
   treatmentContentPage,
+  surgeryPage
 }
 
 extension RouteNameExtensions on RouteName {
@@ -47,6 +50,8 @@ extension RouteNameExtensions on RouteName {
         return "treatMent type";
       case RouteName.treatmentContentPage:
         return "treatMent content type";
+      case RouteName.surgeryPage:
+        return "surgery type";
     }
     return null;
   }

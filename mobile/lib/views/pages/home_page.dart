@@ -102,6 +102,7 @@ class HomePage extends StatelessWidget {
             imageName: "logo_syringe",
           ),
           CommonLogo(
+           onTap: () => Navigator.pushNamed(context, RouteName.surgeryPage.name),
             text: "การดูแล",
             imageName: "logo_heart",
           ),

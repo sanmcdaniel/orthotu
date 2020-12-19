@@ -47,7 +47,7 @@ TextTheme get defaultTextThemeData {
         fontSize: THOR_FONT_SIZE_BASE,
         color: THOR_COLOR_BLACK,
       ),
-       button: TextStyle(
+      button: TextStyle(
         fontFamily: THOR_FONT_FAMILY[0],
         fontFamilyFallback: THOR_FONT_FAMILY,
         fontWeight: THOR_FONT_WEIGHT_REGULAR,
